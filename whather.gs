@@ -1,5 +1,5 @@
 // 「ACCESS_TOKEN」をLINE Notifyのアクセストークンに書き換え。
-const ACCESS_TOKEN= "ZW5OK756fMEIfnGkb7JjNUHAEWTDEj4HRBkL4wTDQp0";
+const ACCESS_TOKEN= "アクセストークン";
 
 async function todayWeatherForecast() {
   const response = await UrlFetchApp.fetch("https://weather.tsukumijima.net/api/forecast/city/220040");
@@ -72,15 +72,9 @@ function emoji(newMessage){
     newMessage = newMessage.replace("雪", "☃️");
     umbrella = true;
   }
-  if (newMessage.match(/霧/)){
-    newMessage = newMessage.replace("霧", "🌫");
-  }
   if (newMessage.match(/みぞれ/)){
     newMessage = newMessage.replace("みぞれ", "☃️");
     umbrella = true;
-  }
-  if (newMessage.match(/風/)){
-    newMessage = newMessage.replace("風", "🌬");
   }
   if (umbrella){
     newMessage = newMessage + "傘が必要です☂️ " + "\n";
