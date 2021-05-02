@@ -5,143 +5,89 @@ async function todayWeatherForecast() {
   const response = await UrlFetchApp.fetch("https://weather.tsukumijima.net/api/forecast/city/220040");
   const json= await JSON.parse(response.getContentText());
   const today_info = json["forecasts"][0];
-  var umbrella = false;
 
   var Message = json["location"]["city"] + "の天気"+ "\n";
   Message = Message + " " + "\n";
   Message = Message + "今日： " + today_info["telop"] + "\n";
 
-  if (Message.match(/晴れ/)){
-    Message = Message.replace("晴れ", "☀️");
-  }
-  if (Message.match(/晴/)){
-    Message = Message.replace("晴", "☀️");
-  }
-  if (Message.match(/曇り/)){
-    Message = Message.replace("曇り", "☁️");
-  }
-  if (Message.match(/曇/)){
-    Message = Message.replace("曇", "☁️");
-  }
-  if (Message.match(/暴風雨/)){
-    Message = Message.replace("暴風雨", "🌬⛈");
-    umbrella = true;
-  }
-  if (Message.match(/雷雨/)){
-    Message = Message.replace("雷雨", "⛈");
-    umbrella = true;
-  }
-  if (Message.match(/雷/)){
-    Message = Message.replace("雷", "🌩");
-    umbrella = true;
-  }
-  if (Message.match(/大雨/)){
-    Message = Message.replace("大雨", "⛈");
-    umbrella = true;
-  }
-  if (Message.match(/雨/)){
-    Message = Message.replace("雨", "🌧");
-    umbrella = true;
-  }
-  if (Message.match(/暴風雪/)){
-    Message = Message.replace("暴風雪", "🌬🌬☃️");
-    umbrella = true;
-  }
-  if (Message.match(/大雪/)){
-    Message = Message.replace("大雪", "🌬☃️");
-    umbrella = true;
-  }
-  if (Message.match(/雪/)){
-    Message = Message.replace("雪", "☃️");
-    umbrella = true;
-  }
-  if (Message.match(/霧/)){
-    Message = Message.replace("霧", "🌫");
-  }
-  if (Message.match(/みぞれ/)){
-    Message = Message.replace("みぞれ", "☃️");
-    umbrella = true;
-  }
-  if (Message.match(/風/)){
-    Message = Message.replace("風", "🌬");
-  }
-  if (umbrella){
-    Message = Message + "傘が必要です☂️ " + "\n";
-  }
-
-  sendToLine(Message);
+  emoji(Message);
 }
 
 async function tommorowWeatherForecast() {
   const response = await UrlFetchApp.fetch("https://weather.tsukumijima.net/api/forecast/city/220040");
   const json= await JSON.parse(response.getContentText());
   const tomorrow_info = json["forecasts"][1];
-  var umbrella = false;
 
   var Message = json["location"]["city"] + "の天気"+ "\n";
   Message = Message + " " + "\n";
   Message = Message + "明日： " + tomorrow_info["telop"] + "\n";
 
-  if (Message.match(/晴れ/)){
-    Message = Message.replace("晴れ", "☀️");
+  emoji(Message);
+}
+
+function emoji(newMessage){
+  var umbrella = false;
+
+  if (newMessage.match(/晴れ/)){
+    newMessage = newMessage.replace("晴れ", "☀️");
   }
-  if (Message.match(/晴/)){
-    Message = Message.replace("晴", "☀️");
+  if (newMessage.match(/晴/)){
+    newMessage = newMessage.replace("晴", "☀️");
   }
-  if (Message.match(/曇り/)){
-    Message = Message.replace("曇り", "☁️");
+  if (newMessage.match(/曇り/)){
+    newMessage = newMessage.replace("曇り", "☁️");
   }
-  if (Message.match(/曇/)){
-    Message = Message.replace("曇", "☁️");
+  if (newMessage.match(/曇/)){
+    newMessage = newMessage.replace("曇", "☁️");
   }
-  if (Message.match(/暴風雨/)){
-    Message = Message.replace("暴風雨", "🌬⛈");
+  if (newMessage.match(/暴風雨/)){
+    newMessage = newMessage.replace("暴風雨", "🌬⛈");
     umbrella = true;
   }
-  if (Message.match(/雷雨/)){
-    Message = Message.replace("雷雨", "⛈");
+  if (newMessage.match(/雷雨/)){
+    newMessage = newMessage.replace("雷雨", "⛈");
     umbrella = true;
   }
-  if (Message.match(/雷/)){
-    Message = Message.replace("雷", "🌩");
+  if (newMessage.match(/雷/)){
+    newMessage = newMessage.replace("雷", "🌩");
     umbrella = true;
   }
-  if (Message.match(/大雨/)){
-    Message = Message.replace("大雨", "⛈");
+  if (newMessage.match(/大雨/)){
+    newMessage = newMessage.replace("大雨", "⛈");
     umbrella = true;
   }
-  if (Message.match(/雨/)){
-    Message = Message.replace("雨", "🌧");
+  if (newMessage.match(/雨/)){
+    newMessage = newMessage.replace("雨", "🌧");
     umbrella = true;
   }
-  if (Message.match(/暴風雪/)){
-    Message = Message.replace("暴風雪", "🌬🌬☃️");
+  if (newMessage.match(/暴風雪/)){
+    newMessage = newMessage.replace("暴風雪", "🌬🌬☃️");
     umbrella = true;
   }
-  if (Message.match(/大雪/)){
-    Message = Message.replace("大雪", "🌬☃️");
+  if (newMessage.match(/大雪/)){
+    newMessage = newMessage.replace("大雪", "🌬☃️");
     umbrella = true;
   }
-  if (Message.match(/雪/)){
-    Message = Message.replace("雪", "☃️");
+  if (newMessage.match(/雪/)){
+    newMessage = newMessage.replace("雪", "☃️");
     umbrella = true;
   }
-  if (Message.match(/霧/)){
-    Message = Message.replace("霧", "🌫");
+  if (newMessage.match(/霧/)){
+    newMessage = newMessage.replace("霧", "🌫");
   }
-  if (Message.match(/みぞれ/)){
-    Message = Message.replace("みぞれ", "☃️");
+  if (newMessage.match(/みぞれ/)){
+    newMessage = newMessage.replace("みぞれ", "☃️");
     umbrella = true;
   }
-  if (Message.match(/風/)){
-    Message = Message.replace("風", "🌬");
+  if (newMessage.match(/風/)){
+    newMessage = newMessage.replace("風", "🌬");
   }
   if (umbrella){
-    Message = Message + "傘が必要です☂️ " + "\n";
+    newMessage = newMessage + "傘が必要です☂️ " + "\n";
   }
-
-  sendToLine(Message);
+  sendToLine(newMessage);
 }
+
 // LINE送信処理
 function sendToLine(text){
   const token = ACCESS_TOKEN;
