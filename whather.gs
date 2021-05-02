@@ -44,43 +44,36 @@ function umbrella(Message){
 
 function emoji(Message){
   if (Message.match(/晴れ/)){
-    Message = Message.replace("晴れ", "☀️");
-  }
-  if (Message.match(/晴/)){
-    Message = Message.replace("晴", "☀️");
+    Message = Message.replace("晴れ", "晴れ☀️");
+  }else if (Message.match(/晴/)){
+    Message = Message.replace("晴", "晴れ☀️");
   }
   if (Message.match(/曇り/)){
-    Message = Message.replace("曇り", "☁️");
-  }
-  if (Message.match(/曇/)){
-    Message = Message.replace("曇", "☁️");
+    Message = Message.replace("曇り", "曇り☁️");
+  }else if (Message.match(/曇/)){
+    Message = Message.replace("曇", "曇り☁️");
   }
   if (Message.match(/暴風雨/)){
-    Message = Message.replace("暴風雨", "🌬⛈");
-  }
-  if (Message.match(/雷雨/)){
-    Message = Message.replace("雷雨", "⛈");
-  }
-  if (Message.match(/雷/)){
-    Message = Message.replace("雷", "🌩");
+    Message = Message.replace("暴風雨", "暴風雨🌬⛈");
+  }else if (Message.match(/雷雨/)){
+    Message = Message.replace("雷雨", "雷雨⛈");
+  }else if (Message.match(/雷/)){
+    Message = Message.replace("雷", "雷🌩");
   }
   if (Message.match(/大雨/)){
-    Message = Message.replace("大雨", "⛈");
-  }
-  if (Message.match(/雨/)){
-    Message = Message.replace("雨", "🌧");
+    Message = Message.replace("大雨", "大雨⛈");
+  }else if (Message.match(/雨/)){
+    Message = Message.replace("雨", "雨🌧");
   }
   if (Message.match(/暴風雪/)){
-    Message = Message.replace("暴風雪", "🌬🌬☃️");
-  }
-  if (Message.match(/大雪/)){
-    Message = Message.replace("大雪", "🌬☃️");
-  }
-  if (Message.match(/雪/)){
-    Message = Message.replace("雪", "☃️");
+    Message = Message.replace("暴風雪", "暴風雪🌬🌬☃️");
+  }else if (Message.match(/大雪/)){
+    Message = Message.replace("大雪", "大雪🌬☃️");
+  }else if (Message.match(/雪/)){
+    Message = Message.replace("雪", "雪☃️");
   }
   if (Message.match(/みぞれ/)){
-    Message = Message.replace("みぞれ", "☃️");
+    Message = Message.replace("みぞれ", "みぞれ❄️");
   }
 
   sendToLine(Message);
