@@ -5,13 +5,11 @@ async function weatherForecast() {
   const json= await JSON.parse(response.getContentText());
   const today_info = json["forecasts"][0];
   const tomorrow_info = json["forecasts"][1];
-  let strBody = `
-  ${today_info["date"].replace(/-/g,"/")} ${json["location"]["city"]}
-  天気: ${today_info["telop"]}
-  ${tomorrow_info["date"].replace(/-/g,"/")} ${json["location"]["city"]}
-  天気: ${tomorrow_info["telop"]}
-  `
-  sendToLine(strBody);
+
+  var Message = json["location"]["city"] + "の天気"+ "\n";
+  Message= Message + "今日の天気： " + today_info["telop"] + "\n";
+  Message =  Message + "明日の天気： " + tomorrow_info["telop"] + "\n";
+  sendToLine(Message);
 }
 // LINE送信処理
 function sendToLine(text){
