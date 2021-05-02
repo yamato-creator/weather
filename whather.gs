@@ -10,7 +10,7 @@ async function todayWeatherForecast() {
   Message = Message + " " + "\n";
   Message = Message + "今日： " + today_info["telop"] + "\n";
 
-  emoji(Message);
+  umbrella(Message);
 }
 
 async function tommorowWeatherForecast() {
@@ -22,12 +22,27 @@ async function tommorowWeatherForecast() {
   Message = Message + " " + "\n";
   Message = Message + "明日： " + tomorrow_info["telop"] + "\n";
 
-  emoji(Message);
+  umbrella(Message);
+}
+
+function umbrella(newMessage){
+  var umbrella = false;
+  if (newMessage.match(/雨/)){
+    umbrella = true;
+  }else if (newMessage.match(/雷/)){
+    umbrella = true;
+  }else if (newMessage.match(/雪/)){
+    umbrella = true;
+  }else if (newMessage.match(/みぞれ/)){
+    umbrella = true;
+  }
+  if (umbrella){
+    newMessage = newMessage + "傘が必要です☂️ " + "\n";
+  }
+  emoji(newMessage)
 }
 
 function emoji(newMessage){
-  var umbrella = false;
-
   if (newMessage.match(/晴れ/)){
     newMessage = newMessage.replace("晴れ", "☀️");
   }
@@ -42,43 +57,32 @@ function emoji(newMessage){
   }
   if (newMessage.match(/暴風雨/)){
     newMessage = newMessage.replace("暴風雨", "🌬⛈");
-    umbrella = true;
   }
   if (newMessage.match(/雷雨/)){
     newMessage = newMessage.replace("雷雨", "⛈");
-    umbrella = true;
   }
   if (newMessage.match(/雷/)){
     newMessage = newMessage.replace("雷", "🌩");
-    umbrella = true;
   }
   if (newMessage.match(/大雨/)){
     newMessage = newMessage.replace("大雨", "⛈");
-    umbrella = true;
   }
   if (newMessage.match(/雨/)){
     newMessage = newMessage.replace("雨", "🌧");
-    umbrella = true;
   }
   if (newMessage.match(/暴風雪/)){
     newMessage = newMessage.replace("暴風雪", "🌬🌬☃️");
-    umbrella = true;
   }
   if (newMessage.match(/大雪/)){
     newMessage = newMessage.replace("大雪", "🌬☃️");
-    umbrella = true;
   }
   if (newMessage.match(/雪/)){
     newMessage = newMessage.replace("雪", "☃️");
-    umbrella = true;
   }
   if (newMessage.match(/みぞれ/)){
     newMessage = newMessage.replace("みぞれ", "☃️");
-    umbrella = true;
   }
-  if (umbrella){
-    newMessage = newMessage + "傘が必要です☂️ " + "\n";
-  }
+
   sendToLine(newMessage);
 }
 
