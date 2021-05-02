@@ -25,65 +25,65 @@ async function tommorowWeatherForecast() {
   umbrella(Message);
 }
 
-function umbrella(newMessage){
+function umbrella(Message){
   var umbrella = false;
-  if (newMessage.match(/雨/)){
+  if (Message.match(/雨/)){
     umbrella = true;
-  }else if (newMessage.match(/雷/)){
+  }else if (Message.match(/雷/)){
     umbrella = true;
-  }else if (newMessage.match(/雪/)){
+  }else if (Message.match(/雪/)){
     umbrella = true;
-  }else if (newMessage.match(/みぞれ/)){
+  }else if (Message.match(/みぞれ/)){
     umbrella = true;
   }
   if (umbrella){
-    newMessage = newMessage + "傘が必要です☂️ " + "\n";
+    Message = Message + "傘が必要です☂️ " + "\n";
   }
-  emoji(newMessage)
+  emoji(Message)
 }
 
-function emoji(newMessage){
-  if (newMessage.match(/晴れ/)){
-    newMessage = newMessage.replace("晴れ", "☀️");
+function emoji(Message){
+  if (Message.match(/晴れ/)){
+    Message = Message.replace("晴れ", "☀️");
   }
-  if (newMessage.match(/晴/)){
-    newMessage = newMessage.replace("晴", "☀️");
+  if (Message.match(/晴/)){
+    Message = Message.replace("晴", "☀️");
   }
-  if (newMessage.match(/曇り/)){
-    newMessage = newMessage.replace("曇り", "☁️");
+  if (Message.match(/曇り/)){
+    Message = Message.replace("曇り", "☁️");
   }
-  if (newMessage.match(/曇/)){
-    newMessage = newMessage.replace("曇", "☁️");
+  if (Message.match(/曇/)){
+    Message = Message.replace("曇", "☁️");
   }
-  if (newMessage.match(/暴風雨/)){
-    newMessage = newMessage.replace("暴風雨", "🌬⛈");
+  if (Message.match(/暴風雨/)){
+    Message = Message.replace("暴風雨", "🌬⛈");
   }
-  if (newMessage.match(/雷雨/)){
-    newMessage = newMessage.replace("雷雨", "⛈");
+  if (Message.match(/雷雨/)){
+    Message = Message.replace("雷雨", "⛈");
   }
-  if (newMessage.match(/雷/)){
-    newMessage = newMessage.replace("雷", "🌩");
+  if (Message.match(/雷/)){
+    Message = Message.replace("雷", "🌩");
   }
-  if (newMessage.match(/大雨/)){
-    newMessage = newMessage.replace("大雨", "⛈");
+  if (Message.match(/大雨/)){
+    Message = Message.replace("大雨", "⛈");
   }
-  if (newMessage.match(/雨/)){
-    newMessage = newMessage.replace("雨", "🌧");
+  if (Message.match(/雨/)){
+    Message = Message.replace("雨", "🌧");
   }
-  if (newMessage.match(/暴風雪/)){
-    newMessage = newMessage.replace("暴風雪", "🌬🌬☃️");
+  if (Message.match(/暴風雪/)){
+    Message = Message.replace("暴風雪", "🌬🌬☃️");
   }
-  if (newMessage.match(/大雪/)){
-    newMessage = newMessage.replace("大雪", "🌬☃️");
+  if (Message.match(/大雪/)){
+    Message = Message.replace("大雪", "🌬☃️");
   }
-  if (newMessage.match(/雪/)){
-    newMessage = newMessage.replace("雪", "☃️");
+  if (Message.match(/雪/)){
+    Message = Message.replace("雪", "☃️");
   }
-  if (newMessage.match(/みぞれ/)){
-    newMessage = newMessage.replace("みぞれ", "☃️");
+  if (Message.match(/みぞれ/)){
+    Message = Message.replace("みぞれ", "☃️");
   }
 
-  sendToLine(newMessage);
+  sendToLine(Message);
 }
 
 // LINE送信処理
